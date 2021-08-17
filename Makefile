@@ -65,7 +65,8 @@ $(NAME): $(MLX) $(LIBFT) $(OBJS)
 $(MLX) :
 ifeq (${fileexists}, ${filename})
 else
-	wget -O "minilibx_mms_20200219.zip" "https://www.dropbox.com/s/0fkqams3ay4056s/minilibx_mms_20200219.zip?dl=0"
+	#wget -O "minilibx_mms_20200219.zip" "https://www.dropbox.com/s/0fkqams3ay4056s/minilibx_mms_20200219.zip?dl=0"
+	curl -L -o minilibx_mms_20200219.zip https://www.dropbox.com/s/0fkqams3ay4056s/minilibx_mms_20200219.zip?dl=1
 	$(RM) -rf __MACOSX
 	@ unzip minilibx_mms_20200219.zip > /dev/null 2>&1
 	$(RM) -rf minilibx_mms_20200219.zip
