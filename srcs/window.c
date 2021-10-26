@@ -1,22 +1,24 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   window.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ymukobar <ymukobar@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/10/12 21:41:00 by ymukobar          #+#    #+#             */
+/*   Updated: 2021/10/12 21:41:01 by ymukobar         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fractol.h"
 
-int	exit_window(t_data *info)
-{
-	if (info->mlx && info->win)
-		mlx_destroy_window(info->mlx, info->win);
-	// if (info->mlx)
-	// 	mlx_destroy_display(info->mlx);
-	exit(0);
-}
-
-int	rgb_to_color(int r, int g, int b)
+int	rgb2hex(int r, int g, int b)
 {
 	r = i_max(0, i_min(r, 255));
 	g = i_max(0, i_min(g, 255));
 	b = i_max(0, i_min(b, 255));
 	return (r << 16 | g << 8 | b);
 }
-
 
 void	my_mlx_pixel_put(t_img *img, int x, int y, int color)
 {
