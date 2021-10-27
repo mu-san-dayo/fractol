@@ -6,7 +6,7 @@
 /*   By: ymukobar <ymukobar@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 21:40:45 by ymukobar          #+#    #+#             */
-/*   Updated: 2021/10/12 21:40:45 by ymukobar         ###   ########.fr       */
+/*   Updated: 2021/10/28 03:56:54 by mukobaray        ###   ########.jp       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	draw_julia(t_data *info)
 		while (x < WIDTH)
 		{
 			info->z_im = info->min_im + y * info->d_im;
-			info->z_re = info->min_re + x * info->d_re;
+			info->z_re = info->max_re - x * info->d_re;
 			my_mlx_pixel_put(&info->img, x, y, set_color(info));
 			x++;
 		}
@@ -36,8 +36,8 @@ void	draw_julia(t_data *info)
 
 int	main_loop_julia(t_data *info)
 {
-	if (info->shift == 1)
-		update_c(info);
+	//if (info->shift == 1)
+	//	update_c(info);
 	draw_julia(info);
 	mlx_put_image_to_window(info->mlx, info->win, info->img.img, 0, 0);
 	return (0);
